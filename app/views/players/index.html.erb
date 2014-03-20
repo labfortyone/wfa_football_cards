@@ -1,0 +1,47 @@
+<h1>Listing players</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Team</th>
+      <th>Name</th>
+      <th>Type player</th>
+      <th>Ball manipulation</th>
+      <th>Dribbling</th>
+      <th>Injury</th>
+      <th>Pass</th>
+      <th>Positioning</th>
+      <th>Speed</th>
+      <th>Steals</th>
+      <th>Trickery</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @players.each do |player| %>
+      <tr>
+        <td><%= player.team_id %></td>
+        <td><%= player.name %></td>
+        <td><%= player.type_player %></td>
+        <td><%= player.ball_manipulation %></td>
+        <td><%= player.dribbling %></td>
+        <td><%= player.injury %></td>
+        <td><%= player.pass %></td>
+        <td><%= player.positioning %></td>
+        <td><%= player.speed %></td>
+        <td><%= player.steals %></td>
+        <td><%= player.trickery %></td>
+        <td><%= link_to 'Show', player %></td>
+        <td><%= link_to 'Edit', edit_player_path(player) %></td>
+        <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Player', new_player_path %>

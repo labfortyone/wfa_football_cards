@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  team_id: 1
+  name: MyString
+  type_player: 1
+  ball_manipulation: 1
+  dribbling: 1
+  injury: false
+  pass: 1
+  positioning: 1
+  speed: 1
+  steals: 1
+  trickery: 1
+
+two:
+  team_id: 1
+  name: MyString
+  type_player: 1
+  ball_manipulation: 1
+  dribbling: 1
+  injury: false
+  pass: 1
+  positioning: 1
+  speed: 1
+  steals: 1
+  trickery: 1

@@ -1,0 +1,27 @@
+<h1>Listing type_players</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @type_players.each do |type_player| %>
+      <tr>
+        <td><%= type_player.name %></td>
+        <td><%= link_to 'Show', type_player %></td>
+        <td><%= link_to 'Edit', edit_type_player_path(type_player) %></td>
+        <td><%= link_to 'Destroy', type_player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Type player', new_type_player_path %>

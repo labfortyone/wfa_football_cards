@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <h2><strong><%= @team.team_name%> <strong></h2>
+</p>
+<br>
+<p>
+  <strong>Coach name:</strong>
+  <%= @team.coach_name %>
+</p>
+
+<% (0..4).each do |i| %>
+  <% if @players[i] != nil %>
+    <p><%= link_to @players[i].name.capitalize, edit_player_path(@players[i]) %></p>
+  <% else %>
+    <p><%= link_to "Player #{i + 1}", new_player_path() %></p>
+  <% end %>
+<% end %>
+
+
+
+<%= link_to 'Edit', edit_team_path(@team) %> |
+<%= link_to 'Back', teams_path %>
