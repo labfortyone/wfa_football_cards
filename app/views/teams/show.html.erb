@@ -9,9 +9,9 @@
   <%= @team.coach_name %>
 </p>
 
-<% (0..4).each do |i| %>
+<% (0..6).each do |i| %>
   <% if @players[i] != nil %>
-    <p><%= link_to @players[i].name.capitalize, edit_player_path(@players[i]) %></p>
+    <p><%= link_to @players[i].name.capitalize, edit_player_path(@players[i]) %>  <%= @type_players.find_by_id(@players[i].type_player).name %>   <%= link_to "Improve Player", new_code_player_path(:id => @players[i].id) %></p>
   <% else %>
     <p><%= link_to "Player #{i + 1}", new_player_path() %></p>
   <% end %>
@@ -19,5 +19,4 @@
 
 
 
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>
+<%= link_to 'Edit', edit_team_path(@team) %>

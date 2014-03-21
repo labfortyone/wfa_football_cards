@@ -1,4 +1,14 @@
 WfaFootballCards::Application.routes.draw do
+  resources :attribute_players
+
+  resources :attributes
+
+  resources :code_players
+
+  resources :card_codes
+
+  resources :cards
+
   devise_for :users
   resources :type_players
 

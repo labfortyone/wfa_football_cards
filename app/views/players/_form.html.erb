@@ -12,12 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :name %>:<br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :type_player %><br>
-    <%= f.number_field :type_player %>
+    <%= f.label :type_player %>:<br>
+    <%= collection_select(:player, :type_player, @type_players, :id, :name) %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  type_player: 1
+  attribute_enhanced: 1
+  qtd_enhanced: 1
+  description: MyString
+  code: MyString
+  rarity: MyString
+  unique_use: false
+  coach_lvl_required: 1
+
+two:
+  name: MyString
+  type_player: 1
+  attribute_enhanced: 1
+  qtd_enhanced: 1
+  description: MyString
+  code: MyString
+  rarity: MyString
+  unique_use: false
+  coach_lvl_required: 1

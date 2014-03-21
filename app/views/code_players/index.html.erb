@@ -1,0 +1,29 @@
+<h1>Listing code_players</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Player</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @code_players.each do |code_player| %>
+      <tr>
+        <td><%= code_player.code_id %></td>
+        <td><%= code_player.player_id %></td>
+        <td><%= link_to 'Show', code_player %></td>
+        <td><%= link_to 'Edit', edit_code_player_path(code_player) %></td>
+        <td><%= link_to 'Destroy', code_player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Code player', new_code_player_path %>

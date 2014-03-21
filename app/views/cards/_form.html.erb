@@ -1,0 +1,49 @@
+<%= form_for(@card) do |f| %>
+  <% if @card.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@card.errors.count, "error") %> prohibited this card from being saved:</h2>
+
+      <ul>
+      <% @card.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>  
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :type_player %><br>
+    <%= collection_select(:card, :type_player, @type_players, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :attribute_enhanced %><br>
+    <%= collection_select(:card, :attribute_enhanced, @attributes, :id, :name) %>
+  </div>
+  <div class="field">
+    <%= f.label :qtd_enhanced %><br>
+    <%= f.number_field :qtd_enhanced %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :rarity %><br>
+    <%= f.text_field :rarity %>
+  </div>
+  <div class="field">
+    <%= f.label :unique_use %><br>
+    <%= f.check_box :unique_use %>
+  </div>
+  <div class="field">
+    <%= f.label :coach_lvl_required %><br>
+    <%= f.number_field :coach_lvl_required %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

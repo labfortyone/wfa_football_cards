@@ -1,0 +1,31 @@
+<h1>Listing attribute_players</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Player</th>
+      <th>Value</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @attribute_players.each do |attribute_player| %>
+      <tr>
+        <td><%= attribute_player.attribute_id %></td>
+        <td><%= attribute_player.player_id %></td>
+        <td><%= attribute_player.value %></td>
+        <td><%= link_to 'Show', attribute_player %></td>
+        <td><%= link_to 'Edit', edit_attribute_player_path(attribute_player) %></td>
+        <td><%= link_to 'Destroy', attribute_player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Attribute player', new_attribute_player_path %>

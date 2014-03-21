@@ -11,15 +11,19 @@ class PlayersController < ApplicationController
   # GET /players/1
   # GET /players/1.json
   def show
+    @team = Team.find(@player.team_id)
+    @type_player = TypePlayer.find_by_id(@player.type_player) 
   end
 
   # GET /players/new
   def new
     @player = Player.new
+    @type_players = TypePlayer.all
   end
 
   # GET /players/1/edit
   def edit
+    @type_players = TypePlayer.all
   end
 
   # POST /players
@@ -27,11 +31,20 @@ class PlayersController < ApplicationController
   def create
     @player = Player.new(player_params)
     @player.team_id = Team.all.where("user_id = ?", current_user.id).first.id
+    @player.injury = 0
 
     respond_to do |format|
       if @player.save
-        format.html { redirect_to @player, notice: 'Player was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @player }
+
+        Attribute.all.each do |att|
+          @attribute_player = AttributePlayer.new
+          @attribute_player.attribute_id = att.id
+          @attribute_player.player_id = @player.id
+          @attribute_player.value = 10
+          @attribute_player.save
+        end
+
+        format.html { redirect_to team_path(@player.team_id), notice: 'Player was successfully created.' }
       else
         format.html { render action: 'new' }
         format.json { render json: @player.errors, status: :unprocessable_entity }

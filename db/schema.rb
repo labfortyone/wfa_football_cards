@@ -11,20 +11,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140320224413) do
+ActiveRecord::Schema.define(version: 20140321141841) do
+
+  create_table "attribute_players", force: true do |t|
+    t.integer  "attribute_id"
+    t.integer  "player_id"
+    t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "attributes", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "card_codes", force: true do |t|
+    t.integer  "card_id"
+    t.string   "code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cards", force: true do |t|
+    t.string   "name"
+    t.integer  "type_player"
+    t.integer  "attribute_enhanced"
+    t.integer  "qtd_enhanced"
+    t.string   "description"
+    t.string   "rarity"
+    t.boolean  "unique_use"
+    t.integer  "coach_lvl_required"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "code_players", force: true do |t|
+    t.integer  "code_id"
+    t.integer  "player_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "players", force: true do |t|
     t.integer  "team_id"
     t.string   "name"
     t.integer  "type_player"
-    t.integer  "ball_manipulation"
-    t.integer  "dribbling"
     t.boolean  "injury"
-    t.integer  "pass"
-    t.integer  "positioning"
-    t.integer  "speed"
-    t.integer  "steals"
-    t.integer  "trickery"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

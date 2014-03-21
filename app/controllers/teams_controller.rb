@@ -5,13 +5,15 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all
+    @current_team = Team.all.where("user_id = ?", current_user.id).first
+    redirect_to team_path(@current_team)
   end
 
   # GET /teams/1
   # GET /teams/1.json
   def show
     @players = Player.all.where("team_id = ?", @team.id)
+    @type_players = TypePlayer.all
   end
 
   # GET /teams/new
@@ -27,6 +29,7 @@ class TeamsController < ApplicationController
   # POST /teams.json
   def create
     @team = Team.new(team_params)
+    @team.user_id = current_user.id
 
     respond_to do |format|
       if @team.save

@@ -1,59 +1,53 @@
-<p id="notice"><%= notice %></p>
+<div class="players-card">
+  <p>
+    <strong><%= @player.name %></strong>
+  </p>
 
-<p>
-  <strong>Team:</strong>
-  <%= @player.team_id %>
-</p>
+  <p>
+    <strong>Type player:</strong>
+    <%= @type_player.name %>
+  </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @player.name %>
-</p>
+  <p>
+    <strong>Ball manipulation:</strong>
+    <%= @player.ball_manipulation %>
+  </p>
 
-<p>
-  <strong>Type player:</strong>
-  <%= @player.type_player %>
-</p>
+  <p>
+    <strong>Dribbling:</strong>
+    <%= @player.dribbling %>
+  </p>
 
-<p>
-  <strong>Ball manipulation:</strong>
-  <%= @player.ball_manipulation %>
-</p>
+  <p>
+    <strong>Injury:</strong>
+    <%= @player.injury %>
+  </p>
 
-<p>
-  <strong>Dribbling:</strong>
-  <%= @player.dribbling %>
-</p>
+  <p>
+    <strong>Pass:</strong>
+    <%= @player.pass %>
+  </p>
 
-<p>
-  <strong>Injury:</strong>
-  <%= @player.injury %>
-</p>
+  <p>
+    <strong>Positioning:</strong>
+    <%= @player.positioning %>
+  </p>
 
-<p>
-  <strong>Pass:</strong>
-  <%= @player.pass %>
-</p>
+  <p>
+    <strong>Speed:</strong>
+    <%= @player.speed %>
+  </p>
 
-<p>
-  <strong>Positioning:</strong>
-  <%= @player.positioning %>
-</p>
+  <p>
+    <strong>Steals:</strong>
+    <%= @player.steals %>
+  </p>
 
-<p>
-  <strong>Speed:</strong>
-  <%= @player.speed %>
-</p>
-
-<p>
-  <strong>Steals:</strong>
-  <%= @player.steals %>
-</p>
-
-<p>
-  <strong>Trickery:</strong>
-  <%= @player.trickery %>
-</p>
+  <p>
+    <strong>Trickery:</strong>
+    <%= @player.trickery %>
+  </p>
+</div>
 
 <%= link_to 'Edit', edit_player_path(@player) %> |
-<%= link_to 'Back', players_path %>
+<%= link_to 'Back', team_path(current_team) %>

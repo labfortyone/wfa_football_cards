@@ -1,0 +1,41 @@
+<h1>Listing cards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type player</th>
+      <th>Attribute enhanced</th>
+      <th>Qtd enhanced</th>
+      <th>Description</th>
+      <th>Rarity</th>
+      <th>Unique use</th>
+      <th>Coach lvl required</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cards.each do |card| %>
+      <tr>
+        <td><%= card.name %></td>
+        <td><%= card.type_player %></td>
+        <td><%= card.attribute_enhanced %></td>
+        <td><%= card.qtd_enhanced %></td>
+        <td><%= card.description %></td>
+        <td><%= card.rarity %></td>
+        <td><%= card.unique_use %></td>
+        <td><%= card.coach_lvl_required %></td>
+        <td><%= link_to 'Show', card %></td>
+        <td><%= link_to 'Edit', edit_card_path(card) %></td>
+        <td><%= link_to 'Destroy', card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Card', new_card_path %>

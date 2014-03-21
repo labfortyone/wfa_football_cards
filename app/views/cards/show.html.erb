@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @card.name %>
+</p>
+
+<p>
+  <strong>Type player:</strong>
+  <%= @card.type_player %>
+</p>
+
+<p>
+  <strong>Attribute enhanced:</strong>
+  <%= @card.attribute_enhanced %>
+</p>
+
+<p>
+  <strong>Qtd enhanced:</strong>
+  <%= @card.qtd_enhanced %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @card.description %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @code %>
+</p>
+
+<p>
+  <strong>Rarity:</strong>
+  <%= @card.rarity %>
+</p>
+
+<p>
+  <strong>Unique use:</strong>
+  <%= @card.unique_use %>
+</p>
+
+<p>
+  <strong>Coach lvl required:</strong>
+  <%= @card.coach_lvl_required %>
+</p>
+
+<%= link_to 'Edit', edit_card_path(@card) %> |
+<%= link_to 'Back', cards_path %>

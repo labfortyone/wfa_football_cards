@@ -1,0 +1,2 @@
+module CardCodesHelper
+end
