@@ -27,20 +27,20 @@ class CodePlayersController < ApplicationController
   # POST /code_players
   # POST /code_players.json
   def create
-    @code = params[:code][:number]
+    @code = params[:code][:value]
 
     if CardCode.exists?(:code => @code)
       @code_player = CodePlayer.new(code_player_params)
-      @code_player.code_id = CardCode.all.where("code_id = ?", @code).first.id
+      @code_player.code_id = CardCode.all.where("code = ?", @code).first.id
     end
 
     respond_to do |format|
       if @code_player.save
-        format.html { redirect_to @code_player, notice: 'Code player was successfully created.' }
+        format.html { redirect_to teams_path, notice: 'Code player was successfully created.' }
         format.json { render action: 'show', status: :created, location: @code_player }
       else
-        format.html { render action: 'new' }
-        format.json { render json: @code_player.errors, status: :unprocessable_entity }
+        flash[:alert] = 'You already used this code.' 
+        format.html { redirect_to teams_path}
       end
     end
   end

@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :code_id %><br>
-    <%= text_field :code, :number %>
+    <%= text_field :code, :value %>
   </div>
   <% if @player == nil %>
     <div class="field">
@@ -22,7 +22,7 @@
     </div>
   <% else %>
     <div class="field">
-      <%= hidden_field_tag(:player_id, @player.id) %>
+      <%= f.hidden_field(:player_id, value: @player.id) %>
     </div>
     <% end %>
   <div class="actions">
