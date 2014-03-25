@@ -5,6 +5,7 @@ class CardCodesController < ApplicationController
   # GET /card_codes.json
   def index
     @card_codes = CardCode.all
+    @cards = Card.all
   end
 
   # GET /card_codes/1
@@ -15,6 +16,7 @@ class CardCodesController < ApplicationController
   # GET /card_codes/new
   def new
     @card_code = CardCode.new
+    @cards = Card.all
   end
 
   # GET /card_codes/1/edit
@@ -24,17 +26,17 @@ class CardCodesController < ApplicationController
   # POST /card_codes
   # POST /card_codes.json
   def create
-    @card_code = CardCode.new(card_code_params)
+    @quantity = params[:number][:times]
+    @quantity = @quantity.to_i
 
-    respond_to do |format|
+    @quantity.times do |i|
+      @card_code = CardCode.new(card_code_params)
       if @card_code.save
-        format.html { redirect_to @card_code, notice: 'Card code was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @card_code }
       else
-        format.html { render action: 'new' }
-        format.json { render json: @card_code.errors, status: :unprocessable_entity }
+       render action: 'new'
       end
     end
+     redirect_to cards_path, notice: 'Card code was successfully created.'
   end
 
   # PATCH/PUT /card_codes/1

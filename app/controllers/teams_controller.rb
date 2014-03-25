@@ -6,7 +6,9 @@ class TeamsController < ApplicationController
   # GET /teams.json
   def index
     @current_team = Team.all.where("user_id = ?", current_user.id).first
-    redirect_to team_path(@current_team)
+    if @current_team != nil
+      redirect_to team_path(@current_team)
+    end
   end
 
   # GET /teams/1
@@ -18,7 +20,12 @@ class TeamsController < ApplicationController
 
   # GET /teams/new
   def new
-    @team = Team.new
+    @current_team = Team.all.where("user_id = ?", current_user.id).first
+    if @current_team != nil
+      redirect_to team_path(@current_team)
+    else
+      @team = Team.new
+    end
   end
 
   # GET /teams/1/edit

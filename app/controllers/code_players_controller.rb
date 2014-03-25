@@ -27,7 +27,12 @@ class CodePlayersController < ApplicationController
   # POST /code_players
   # POST /code_players.json
   def create
-    @code_player = CodePlayer.new(code_player_params)
+    @code = params[:code][:number]
+
+    if CardCode.exists?(:code => @code)
+      @code_player = CodePlayer.new(code_player_params)
+      @code_player.code_id = CardCode.all.where("code_id = ?", @code).first.id
+    end
 
     respond_to do |format|
       if @code_player.save

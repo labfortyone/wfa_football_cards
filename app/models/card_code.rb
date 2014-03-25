@@ -15,3 +15,5 @@ class CardCode < ActiveRecord::Base
     return code
   end
 end
+
+

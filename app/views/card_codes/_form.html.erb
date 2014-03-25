@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :card_id %><br>
-    <%= f.number_field :card_id %>
+    <%= collection_select(:card_code, :card_id, @cards, :id, :name) %>
   </div>
   <div class="field">
-    <%= f.label :code %><br>
-    <%= f.text_field :code %>
+    <%= f.label "how many codes?" %><br>
+    <%= text_field :number, :times %>
   </div>
   <div class="actions">
     <%= f.submit %>

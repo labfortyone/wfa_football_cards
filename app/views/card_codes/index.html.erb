@@ -7,17 +7,15 @@
       <th>Code</th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @card_codes.each do |card_code| %>
       <tr>
-        <td><%= card_code.card_id %></td>
+        <td><%= @cards.find_by_id(card_code.card_id).name %></td>
         <td><%= card_code.code %></td>
         <td><%= link_to 'Show', card_code %></td>
-        <td><%= link_to 'Edit', edit_card_code_path(card_code) %></td>
         <td><%= link_to 'Destroy', card_code, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
