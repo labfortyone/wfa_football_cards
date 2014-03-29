@@ -1,6 +1,5 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
 
   # GET /teams
   # GET /teams.json
@@ -8,6 +7,8 @@ class TeamsController < ApplicationController
     @current_team = Team.all.where("user_id = ?", current_user.id).first
     if @current_team != nil
       redirect_to team_path(@current_team)
+    else
+      redirect_to new_team_path
     end
   end
 

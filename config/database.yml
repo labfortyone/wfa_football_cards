@@ -17,7 +17,7 @@ test:
   database: wfa_football_cards_test
   pool: 5
   username: root
-  password:
+  password: aapr7734
 
 production:
   adapter: mysql2

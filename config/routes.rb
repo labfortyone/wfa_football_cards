@@ -1,4 +1,6 @@
 WfaFootballCards::Application.routes.draw do
+  resources :code_teams
+
   resources :attribute_players
 
   resources :attributes

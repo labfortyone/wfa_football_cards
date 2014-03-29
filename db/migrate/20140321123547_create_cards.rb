@@ -6,7 +6,6 @@ class CreateCards < ActiveRecord::Migration
       t.integer :attribute_enhanced
       t.integer :qtd_enhanced
       t.string :description
-      t.string :code
       t.string :rarity
       t.boolean :unique_use
       t.integer :coach_lvl_required
